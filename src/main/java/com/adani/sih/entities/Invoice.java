@@ -6,36 +6,42 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="invoice")
 public class Invoice {
 	
 	@Id
-	private long invoice_id;
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Userdtls user_id;
-	private Date due_date;
+	private String invoiceId;
+	@JoinColumn(name ="USER_ID")
+	@ManyToOne
+	private Userdtls userId;
+	private Date dueDate;
 	private long amount;
-	private long container_no;
+	private long containerNo;
 	private String status;
 	
-	public long getInvoice_id() {
-		return invoice_id;
+	public String getInvoiceId() {
+		return invoiceId;
 	}
-	public void setInvoice_id(long invoice_id) {
-		this.invoice_id = invoice_id;
+	public void setInvoiceId(String invoiceId) {
+		this.invoiceId = invoiceId;
 	}
-	public Userdtls getUser_id() {
-		return user_id;
+	public Userdtls getUserId() {
+		return userId;
 	}
-	public void setUser_id(Userdtls user_id) {
-		this.user_id = user_id;
+	public void setUserId(Userdtls userId) {
+		this.userId = userId;
 	}
-	public Date getDue_date() {
-		return due_date;
+	public Date getDueDate() {
+		return dueDate;
 	}
-	public void setDue_date(Date due_date) {
-		this.due_date = due_date;
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 	public long getAmount() {
 		return amount;
@@ -43,11 +49,11 @@ public class Invoice {
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
-	public long getContainer_no() {
-		return container_no;
+	public long getContainerNo() {
+		return containerNo;
 	}
-	public void setContainer_no(long container_no) {
-		this.container_no = container_no;
+	public void setContainerNo(long containerNo) {
+		this.containerNo = containerNo;
 	}
 	public String getStatus() {
 		return status;
@@ -56,5 +62,5 @@ public class Invoice {
 		this.status = status;
 	}
 	
-
+	
 }

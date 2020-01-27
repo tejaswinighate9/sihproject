@@ -1,8 +1,8 @@
 package com.adani.sih.entities;
+ import java.sql.Date;
 
 
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +16,7 @@ public class Transactiondtls {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long trans_id;
 	private long time;
-	//private long date;
-	Date date =new Date();
+	private Date date;
 	private long total_amt;
 	private String trans_method;
 	private String trans_type;

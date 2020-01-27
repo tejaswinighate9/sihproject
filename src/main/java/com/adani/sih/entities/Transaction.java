@@ -1,36 +1,61 @@
 package com.adani.sih.entities;
 
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Transaction {
+@Embeddable
+public class Transaction implements Serializable {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Transactiondtls trans_id;
-	private long invoice_id;
-	private long amt_pay;
-	
-	public Transactiondtls getTrans_id() {
-		return trans_id;
-	}
-	public void setTrans_id(Transactiondtls trans_id) {
-		this.trans_id = trans_id;
-	}
-	public long getInvoice_id() {
-		return invoice_id;
-	}
-	public void setInvoice_id(long invoice_id) {
-		this.invoice_id = invoice_id;
-	}
-	public long getAmt_pay() {
-		return amt_pay;
-	}
-	public void setAmt_pay(long amt_pay) {
-		this.amt_pay = amt_pay;
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
+
+	@JoinColumn(name="INVOICE_ID")
+	@OneToOne
+	private Invoice invoiceId;
+	
+	@JoinColumn(name="TRANS_ID")
+	@OneToOne
+	private Transactiondtls transId;
+	
+	private long payableAmt;
+	
+	
+	public Transaction(Invoice invoiceId, Transactiondtls transId, long payableAmt) {
+		super();
+		this.invoiceId = invoiceId;
+		this.transId = transId;
+		this.payableAmt = payableAmt;
+	}
+	public Transactiondtls getTransId() {
+		return transId;
+	}
+	public void setTransId(Transactiondtls transId) {
+		this.transId = transId;
+	}
+	public Invoice getInvoiceId() {
+		return invoiceId;
+	}
+	public void setInvoiceId(Invoice invoiceId) {
+		this.invoiceId = invoiceId;
+	}
+	public long getPayableAmt() {
+		return payableAmt;
+	}
+	public void setPayableAmt(long payableAmt) {
+		this.payableAmt = payableAmt;
+	}
+	
+	
 }
