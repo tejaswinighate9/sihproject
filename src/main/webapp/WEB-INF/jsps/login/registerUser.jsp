@@ -7,15 +7,17 @@
 <title>Register User</title>
 </head>
 <body>
-<pre>
+
 <form action="registerUser" method="post">
+<pre>
 First Name: <input type="text" name="first_name"/>
 Last Name: <input type="text" name="last_name"/>
 MB no: <input type="text" name="phone_no"/>
 Address: <input type="text" name="address"/>
 Email : <input type="text" name="email"/>
 <input type="submit" value="register"/>
-</form>
 </pre>
+</form>
+
 </body>
 </html>

@@ -14,37 +14,41 @@ public class TransClassId implements Serializable {
 
 	@JoinColumn(name = "SR_NO")
 	@ManyToOne
-	private Long srNo;
+	private Transactiondtls srNo;
 
 	@JoinColumn(name = "INVOICE_ID")
 	@OneToOne
-	private String invoiceId;
+	private Invoice invoiceId;
 
 	public TransClassId() {
 		super();
 	}
 
-	public TransClassId(Long srNo, String invoiceId) {
-		super();
-		this.srNo = srNo;
-		this.invoiceId = invoiceId;
-	}
-
-	public Long getSrNo() {
+	
+	public Transactiondtls getSrNo() {
 		return srNo;
 	}
 
-	public void setSrNo(Long srNo) {
+
+	public void setSrNo(Transactiondtls srNo) {
 		this.srNo = srNo;
 	}
 
-	public String getInvoiceId() {
+
+	public Invoice getInvoiceId() {
 		return invoiceId;
 	}
 
-	public void setInvoiceId(String invoiceId) {
+
+	public void setInvoiceId(Invoice invoiceId) {
 		this.invoiceId = invoiceId;
 	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 	@Override
 	public String toString() {
