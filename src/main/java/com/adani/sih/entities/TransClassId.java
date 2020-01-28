@@ -4,19 +4,17 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Embeddable
 public class TransClassId implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@JoinColumn(name = "TRANS_ID")
-	@OneToOne
-	private String transId;
+	@JoinColumn(name = "SR_NO")
+	@ManyToOne
+	private Long srNo;
 
 	@JoinColumn(name = "INVOICE_ID")
 	@OneToOne
@@ -26,18 +24,18 @@ public class TransClassId implements Serializable {
 		super();
 	}
 
-	public TransClassId(String transId, String invoiceId) {
+	public TransClassId(Long srNo, String invoiceId) {
 		super();
-		this.transId = transId;
+		this.srNo = srNo;
 		this.invoiceId = invoiceId;
 	}
 
-	public String getTransId() {
-		return transId;
+	public Long getSrNo() {
+		return srNo;
 	}
 
-	public void setTransId(String transId) {
-		this.transId = transId;
+	public void setSrNo(Long srNo) {
+		this.srNo = srNo;
 	}
 
 	public String getInvoiceId() {
@@ -46,6 +44,11 @@ public class TransClassId implements Serializable {
 
 	public void setInvoiceId(String invoiceId) {
 		this.invoiceId = invoiceId;
+	}
+
+	@Override
+	public String toString() {
+		return "TransClassId [srNo=" + srNo + ", invoiceId=" + invoiceId + "]";
 	}
 
 }

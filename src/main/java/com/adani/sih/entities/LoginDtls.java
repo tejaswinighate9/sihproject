@@ -1,15 +1,19 @@
 package com.adani.sih.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="LoginDtls")
+@Table(name = "LoginDtls")
 public class LoginDtls {
 
 	@Id
+	@Column(name = "EMAIL")
 	private String email;
+
+	@Column(name = "PWD")
 	private String pwd;
 
 	public String getEmail() {

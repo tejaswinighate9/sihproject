@@ -2,6 +2,7 @@ package com.adani.sih.entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,12 +18,21 @@ public class Invoice {
 
 	@Id
 	private String invoiceId;
-	@JoinColumn(name = "USER_ID")
+	
 	@ManyToOne
+	@JoinColumn(name = "USER_ID")
 	private Userdtls userId;
+	
+	@Column(name="DUE_DATE")
 	private Date dueDate;
+	
+	@Column(name="AMOUNT")
 	private long amount;
+	
+	@Column(name="CONTAINER_NO")
 	private long containerNo;
+	
+	@Column(name="STATUS")
 	private String status;
 
 	public String getInvoiceId() {

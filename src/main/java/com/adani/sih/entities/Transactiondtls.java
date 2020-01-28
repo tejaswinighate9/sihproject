@@ -2,6 +2,7 @@ package com.adani.sih.entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,11 +14,26 @@ import javax.persistence.Table;
 public class Transactiondtls {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "SR_NO")
+	private long srNo;
+
+	@Column(name = "TRANS_ID")
 	private String transId;
+
+	@Column(name = "TIME")
 	private long time;
+
+	@Column(name = "DATE")
 	private Date date;
+
+	@Column(name = "TOTAL_AMT")
 	private long totalAmt;
+
+	@Column(name = "TRANS_METHOD")
 	private String transMethod;
+
+	@Column(name = "TRASN_TYPE")
 	private String transType;
 
 	public String getTransId() {
@@ -66,6 +82,14 @@ public class Transactiondtls {
 
 	public void setTransType(String transType) {
 		this.transType = transType;
+	}
+
+	public long getSrNo() {
+		return srNo;
+	}
+
+	public void setSrNo(long srNo) {
+		this.srNo = srNo;
 	}
 
 	@Override

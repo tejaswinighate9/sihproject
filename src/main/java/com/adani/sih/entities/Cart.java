@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "cart")
 public class Cart {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long cartId;
@@ -19,6 +20,8 @@ public class Cart {
 	@OneToOne
 	@JoinColumn(name = "INVOICE_ID")
 	private Invoice invoiceId;
+	
+	@Column(name="PAYABLE_AMT")
 	private long payableAmt;
 
 	public long getCartId() {

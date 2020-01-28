@@ -1,5 +1,6 @@
 package com.adani.sih.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,19 +10,28 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="UserDtls")
+@Table(name = "UserDtls")
 public class Userdtls {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "USER_ID")
 	private long userId;
 
+	@Column(name = "FIRST_NAME")
 	private String firstName;
+
+	@Column(name = "LAST_NAME")
 	private String lastName;
+
+	@Column(name = "PHONE_NO")
 	private long phoneNo;
+
+	@Column(name = "ADDRESS")
 	private String address;
 
 	@OneToOne
-	@JoinColumn(name="email")
+	@JoinColumn(name = "EMAIL")
 	private LoginDtls email;
 
 	public long getUserId() {
