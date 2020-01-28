@@ -1,61 +1,77 @@
 package com.adani.sih.entities;
- import java.sql.Date;
 
-
-
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "TransactionDtls")
 public class Transactiondtls {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long trans_id;
+	private String transId;
 	private long time;
 	private Date date;
-	private long total_amt;
-	private String trans_method;
-	private String trans_type;
-	
-	public long getTrans_id() {
-		return trans_id;
+	private long totalAmt;
+	private String transMethod;
+	private String transType;
+
+	public String getTransId() {
+		return transId;
 	}
-	public void setTrans_id(long trans_id) {
-		this.trans_id = trans_id;
+
+	public void setTransId(String transId) {
+		this.transId = transId;
 	}
+
 	public long getTime() {
 		return time;
 	}
+
 	public void setTime(long time) {
 		this.time = time;
 	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public long getTotal_amt() {
-		return total_amt;
+
+	public long getTotalAmt() {
+		return totalAmt;
 	}
-	public void setTotal_amt(long total_amt) {
-		this.total_amt = total_amt;
+
+	public void setTotalAmt(long totalAmt) {
+		this.totalAmt = totalAmt;
 	}
-	public String getTrans_method() {
-		return trans_method;
+
+	public String getTransMethod() {
+		return transMethod;
 	}
-	public void setTrans_method(String trans_method) {
-		this.trans_method = trans_method;
+
+	public void setTransMethod(String transMethod) {
+		this.transMethod = transMethod;
 	}
-	public String getTrans_type() {
-		return trans_type;
+
+	public String getTransType() {
+		return transType;
 	}
-	public void setTrans_type(String trans_type) {
-		this.trans_type = trans_type;
+
+	public void setTransType(String transType) {
+		this.transType = transType;
+	}
+
+	@Override
+	public String toString() {
+		return "Transactiondtls [trans_id=" + transId + ", time=" + time + ", date=" + date + ", totalAmt=" + totalAmt
+				+ ", transMethod=" + transMethod + ", transType=" + transType + "]";
 	}
 
 }

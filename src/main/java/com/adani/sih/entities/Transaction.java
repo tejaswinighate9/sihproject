@@ -1,61 +1,52 @@
 package com.adani.sih.entities;
 
-import java.io.Serializable;
 
-import javax.persistence.Embeddable;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
+import javax.persistence.Table;
 
 @Entity
-@Embeddable
-public class Transaction implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Table(name="transaction")
+public class Transaction {
 
-
-	@JoinColumn(name="INVOICE_ID")
-	@OneToOne
-	private Invoice invoiceId;
+	@EmbeddedId
+	private TransClassId transClassId;
 	
-	@JoinColumn(name="TRANS_ID")
-	@OneToOne
-	private Transactiondtls transId;
-	
+	@Column(name="PAYABLE_AMT")
 	private long payableAmt;
 	
-	
-	public Transaction(Invoice invoiceId, Transactiondtls transId, long payableAmt) {
+
+	public Transaction() {
 		super();
-		this.invoiceId = invoiceId;
-		this.transId = transId;
+	}
+
+	public Transaction(TransClassId transClassId, long payableAmt) {
+		super();
+		this.transClassId = transClassId;
 		this.payableAmt = payableAmt;
 	}
-	public Transactiondtls getTransId() {
-		return transId;
+
+	public TransClassId getTransClassId() {
+		return transClassId;
 	}
-	public void setTransId(Transactiondtls transId) {
-		this.transId = transId;
+
+	public void setTransClassId(TransClassId transClassId) {
+		this.transClassId = transClassId;
 	}
-	public Invoice getInvoiceId() {
-		return invoiceId;
-	}
-	public void setInvoiceId(Invoice invoiceId) {
-		this.invoiceId = invoiceId;
-	}
+
 	public long getPayableAmt() {
 		return payableAmt;
 	}
+
 	public void setPayableAmt(long payableAmt) {
 		this.payableAmt = payableAmt;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Transaction [transClassId=" + transClassId + ", payableAmt=" + payableAmt + "]";
+	}
+
 }
