@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.adani.sih.entities.LoginDtls;
 
 @Repository
-public interface LogindtlsRepository extends JpaRepository<LoginDtls,String>{
-
-	LoginDtls findByEmail(String email);
-
+public interface LogindtlsRepository extends JpaRepository<LoginDtls, String> {
+	LoginDtls findByEmail(String string);
 }
