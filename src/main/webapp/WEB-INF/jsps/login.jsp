@@ -61,7 +61,7 @@
                   <a class="nav-link" href="static-page.jsp">Logistics</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="login.jsp">Payment</a>
+                  <a class="nav-link" href="login">Payment</a>
                 </li>
               </ul>
               <!-- Search & Shop Btn Area -->
@@ -80,8 +80,9 @@
   <!-- Login Form Start -->
   <div class="loginnn">
   <div class="container2" id="container2">
-    <div class="form-container2 sign-up-container2">
-      <form class="farm" action="#">
+    <div class="form-container2 sign-up-container2" id="signUp">
+    <div id="ErrorMsg"> ${errorMsg} </div>
+      <form class="farm" action="/adani/register" method="post">
         <h1>Create Account</h1>
         <div class="social-container2">
           <a href="#" class="social"><i class="fa fa-facebook-f"></i></a>
@@ -89,10 +90,10 @@
           <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
         </div>
         <span class="sss">or use your email for registration</span>
-        <input class="inn" type="text" placeholder="Name" />
-        <input class="inn" type="email" placeholder="Email" />
-        <input class="inn" type="password" placeholder="Password" />
-        <button class="butt" id="upDirect">Sign Up</button>
+        <input class="inn" type="text" name="firstName"placeholder="Name" />
+        <input class="inn" type="email" name="email" placeholder="Email" />
+        <input class="inn" type="password" name="pwd" placeholder="Password" />
+        <button class="butt" type="submit" upDirect">Sign Up</button>
       </form>
     </div>
     <div class="form-container2 sign-in-container2">

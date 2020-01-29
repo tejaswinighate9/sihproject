@@ -61,7 +61,7 @@
                   <a class="nav-link" href="static-page.jsp">Logistics</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="login.jsp">Payment</a>
+                  <a class="nav-link" href="login">Payment</a>
                 </li>
               </ul>
               <!-- Search & Shop Btn Area -->

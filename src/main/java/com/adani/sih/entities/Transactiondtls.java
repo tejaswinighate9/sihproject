@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Transactiondtls {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "SR_NO")
 	private long srNo;
 

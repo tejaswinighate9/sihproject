@@ -1,5 +1,6 @@
 package com.adani.sih.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,12 +10,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name = "UserDtls")
+@Table(name = "User_dtls")
 public class Userdtls {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
 	private long userId;
 
@@ -30,7 +32,7 @@ public class Userdtls {
 	@Column(name = "ADDRESS")
 	private String address;
 
-	@OneToOne
+	@OneToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name = "EMAIL")
 	private LoginDtls email;
 

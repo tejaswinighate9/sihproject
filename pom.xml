@@ -5,7 +5,11 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.4.RELEASE</version>
+		<!-- TEJASWINI -->
+<!-- 		<version>2.2.4.RELEASE</version>
+ -->		
+ 		<!-- Krunal -->
+ 		<version>2.2.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.adani.sih</groupId>

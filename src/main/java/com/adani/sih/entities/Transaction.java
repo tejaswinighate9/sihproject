@@ -19,7 +19,7 @@ public class Transaction {
 //	private TransClassId transClassId;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Long Id;
 
